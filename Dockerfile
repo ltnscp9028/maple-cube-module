@@ -13,7 +13,7 @@ RUN yarn global add pm2
 
 ENV NODE_ENV production
 
-RUN npx prisma generate
+RUN npx prisma generate --schema ./server/prisma/schema.prisma
 
 EXPOSE 4000
 
