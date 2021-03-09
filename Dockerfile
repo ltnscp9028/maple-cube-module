@@ -7,7 +7,7 @@ COPY ./server/yarn.lock ./
 
 COPY . .
 
-RUN yarn install pm2 -g
+RUN yarn global add pm2
 
 ENV NODE_ENV production
 
