@@ -1,0 +1,6 @@
+node_modules/
+*.env*
+nabi-app-da8e9-firebase-adminsdk-vog3g-97f438c7de.json
+generated/
+build
+deploy.sh

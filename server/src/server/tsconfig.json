@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "strict": true,
+    "outDir": "dist"
+  },
+  "exclude": ["prisma/**/*"]
+}
