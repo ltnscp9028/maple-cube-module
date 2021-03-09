@@ -17,4 +17,4 @@ RUN npx prisma generate --schema ./server/prisma/schema.prisma
 
 EXPOSE 4000
 
-CMD ["yarn","serve"]
+CMD ["yarn","run","serve"]
