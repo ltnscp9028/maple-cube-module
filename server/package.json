@@ -25,7 +25,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=develop nodemon --exec ts-node-dev --tree-kill --no-notify --respawn --transpile-only src/index.ts",
-    "serve": "cross-env NODE_ENV=production nodemon --exec ts-node --tree-kill --no-notify --respawn --transpile-only server/src/index.ts",
+    "serve": "cross-env NODE_ENV=production nodemon --exec ts-node --transpile-only server/src/index.ts",
     "admin": "npx dotenv-cli -e .env -- npx prisma studio",
     "clean": "rm -rf dist",
     "build": "yarn -s clean && yarn -s generate && tsc",
