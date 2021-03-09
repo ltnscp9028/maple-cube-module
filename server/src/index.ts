@@ -37,14 +37,15 @@ const server = new GraphQLServer({
   },
 });
 
-if (process.env.NODE_ENV == 'production') {
-  server.express.get('/', (req, res) => {
-    return res.status(200).send();
-  });
-}
+// if (process.env.NODE_ENV == 'production') {
+//   server.express.get('/', (req, res) => {
+//     return res.status(200).send();
+//   });
+// }
 
 const option = {
-  playground: process.env.NODE_ENV == 'production' ? false : '/',
+  // playground: process.env.NODE_ENV == 'production' ? false : '/',
+  playground: '/',
 };
 
 server.start(option, async () => {
