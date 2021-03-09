@@ -2,8 +2,8 @@ FROM node:12
 
 WORKDIR /home/node/app
 
-COPY ./package.json ./
-COPY ./yarn.lock ./
+COPY ./server/package.json ./
+COPY ./server/yarn.lock ./
 
 RUN yarn
 
