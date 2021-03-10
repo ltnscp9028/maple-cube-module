@@ -2,9 +2,9 @@ FROM node:12
 
 WORKDIR /home/node/app
 
-COPY ./server/package.json ./
-COPY ./server/yarn.lock ./
-COPY ./server/tsconfig.json ./
+COPY package.json ./
+COPY yarn.lock ./
+COPY tsconfig.json ./
 
 RUN yarn
 
@@ -14,7 +14,7 @@ RUN yarn global add pm2
 
 ENV NODE_ENV production
 
-RUN npx prisma generate --schema ./server/prisma/schema.prisma
+RUN npx prisma generate
 
 RUN yarn run build
 

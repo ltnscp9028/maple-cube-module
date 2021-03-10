@@ -15,11 +15,11 @@ export default makeSchema({
     }),
   ],
   outputs: {
-    typegen: require.resolve('../generated/nextus.ts'),
-    schema: require.resolve('../generated/schema.graphql'),
+    typegen: path.join(__dirname, '../generated/nexus.ts'),
+    schema: path.join(__dirname, '../generated/schema.graphql'),
   },
   contextType: {
-    module: require.resolve('../context'),
+    module: path.join(__dirname, '../context.ts'),
     export: 'Context',
   },
   sourceTypes: {
