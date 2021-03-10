@@ -29,8 +29,8 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only src/index.ts",
     "build": "yarn build:reflection && npx tsc server",
-    "build:reflection": "cross-env NEXUS_SHOULD_EXIT_AFTER_REFLECTION=true ts-node server/src",
-    "start": "cross-env NODE_ENV=production node server/build/src",
+    "build:reflection": "NEXUS_SHOULD_EXIT_AFTER_REFLECTION=true ts-node server/src",
+    "start": "NODE_ENV=production node server/build/src",
     "admin": "npx dotenv-cli -e .env -- npx prisma studio",
     "clean": "rm -rf ./build",
     "style": "prettier --write 'src/**/*'",
