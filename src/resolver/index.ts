@@ -7,6 +7,7 @@ import * as path from 'path';
 
 const type = [objectType, queryType, mutation];
 
+console.log({ __dirname });
 export default makeSchema({
   types: type,
   plugins: [
@@ -14,10 +15,6 @@ export default makeSchema({
       experimentalCRUD: true,
     }),
   ],
-  outputs: {
-    typegen: path.join(__dirname, '../generated/nexus.ts'),
-    schema: path.join(__dirname, '../generated/schema.graphql'),
-  },
   contextType: {
     module: path.join(__dirname, '../context.ts'),
     export: 'Context',
@@ -31,4 +28,8 @@ export default makeSchema({
     ],
   },
   shouldExitAfterGenerateArtifacts: Boolean(process.env.NEXUS_SHOULD_EXIT_AFTER_REFLECTION),
+  outputs: {
+    typegen: path.join(__dirname, '../generated/nexus.ts'),
+    schema: path.join(__dirname, '../generated/schema.graphql'),
+  },
 });
