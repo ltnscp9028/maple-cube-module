@@ -4,6 +4,7 @@ WORKDIR /home/node/app
 
 COPY ./server/package.json ./
 COPY ./server/yarn.lock ./
+COPY ./server/tsconfig.json ./
 
 RUN yarn
 

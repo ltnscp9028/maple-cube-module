@@ -1,38 +1,27 @@
 import { ApolloServer } from 'apollo-server-express';
-import { makeSchema } from 'nexus';
-import { PrismaClient } from '@prisma/client';
-import { nexusSchemaPrisma } from 'nexus-plugin-prisma/schema';
-import * as path from 'path';
 import express from 'express';
-
-import type from './resolver';
-const prisma = new PrismaClient({
-  log: [
-    {
-      emit: 'event',
-      level: 'query',
-    },
-  ],
-});
+import schema from './resolver';
+import { createContext } from './context';
 
 const apollo = new ApolloServer({
-  context: () => ({ prisma }),
-  schema: makeSchema({
-    types: type,
-    plugins: [nexusSchemaPrisma({ experimentalCRUD: true })],
-    sourceTypes: {
-      modules: [{ module: '.prisma/client', alias: 'PrismaClient' }],
-    },
-    contextType: {
-      module: path.join(__dirname, 'context.ts'),
-      export: 'Context',
-    },
-    outputs: {
-      typegen: path.join(__dirname, '/generated/nexus.ts'),
-      schema: path.join(__dirname, '/generated/schema.graphql'),
-    },
-    shouldExitAfterGenerateArtifacts: Boolean(process.env.NEXUS_SHOULD_EXIT_AFTER_REFLECTION),
-  }),
+  schema: schema,
+  context: createContext(),
+  // schema: makeSchema({
+  //   types: type,
+  //   plugins: [nexusSchemaPrisma({ experimentalCRUD: true })],
+  //   sourceTypes: {
+  //     modules: [{ module: '.prisma/client', alias: 'PrismaClient' }],
+  //   },
+  //   contextType: {
+  //     module: path.join(__dirname, 'context.ts'),
+  //     export: 'Context',
+  //   },
+  //   outputs: {
+  //     typegen: path.join(__dirname, '/generated/nexus.ts'),
+  //     schema: path.join(__dirname, '/generated/schema.graphql'),
+  //   },
+  //   shouldExitAfterGenerateArtifacts: Boolean(process.env.NEXUS_SHOULD_EXIT_AFTER_REFLECTION),
+  // }),
 });
 
 const app = express();
