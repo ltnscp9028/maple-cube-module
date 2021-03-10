@@ -25,7 +25,7 @@ export default makeSchema({
   sourceTypes: {
     modules: [
       {
-        module: require.resolve('.prisma/client/index.d.ts'),
+        module: '.prisma/client',
         alias: 'prisma',
       },
     ],
