@@ -15,8 +15,8 @@ export default makeSchema({
     }),
   ],
   outputs: {
-    typegen: path.join(__dirname, '../generated/nexus.ts'),
-    schema: path.join(__dirname, '../generated/schema.graphql'),
+    typegen: require.resolve('../generated/nextus.ts'),
+    schema: require.resolve('../generated/schema.graphql'),
   },
   contextType: {
     module: require.resolve('../context'),
