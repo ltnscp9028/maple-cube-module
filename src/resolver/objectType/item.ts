@@ -3,8 +3,8 @@ import { objectType } from 'nexus';
 const item = objectType({
   name: 'item',
   definition(t) {
-    t.nonNull.int('item_id');
-    t.nonNull.string('item_name');
+    t.model.item_id();
+    t.model.item_name();
   },
 });
 
