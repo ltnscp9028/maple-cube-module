@@ -30,7 +30,7 @@
     "dev": "npx ts-node-dev --transpile-only src/index.ts", 
     "build": "yarn build:reflection && npx tsc",
     "build:reflection": "cross-env NEXUS_SHOULD_EXIT_AFTER_REFLECTION=true npx ts-node --transpile-only ./src/resolver/index.ts",
-    "start": "NODE_ENV=production node build/src",
+    "start": "cross-env NODE_ENV=production node build/src",
     "admin": "npx dotenv-cli -e .env -- npx prisma studio",
     "clean": "rm -rf ./build",
     "style": "prettier --write 'src/**/*'",
