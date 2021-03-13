@@ -7,7 +7,6 @@ import * as path from 'path';
 
 const type = [objectType, queryType, mutation];
 
-console.log({ __dirname });
 export default makeSchema({
   types: type,
   plugins: [

@@ -11,3 +11,21 @@ model item {
   item_id   Int    @id @default(autoincrement())
   item_name String
 }
+
+model cube_probability {
+  cube_probability_id Int  @id @default(autoincrement())
+  cube_id             Int
+  cube                cube @relation(fields: [cube_id], references: [cube_id])
+}
+
+model cube {
+  cube_id          Int                @id @default(autoincrement())
+  cube_type        CUBE_TYPE
+  cube_probability cube_probability[]
+}
+
+enum CUBE_TYPE {
+  BLACK
+  RED
+  ADDITIONAL
+}
