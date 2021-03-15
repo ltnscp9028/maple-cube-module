@@ -29,6 +29,7 @@
   "scripts": {
     "dev": "yarn run generate:nexus && npx ts-node-dev --transpile-only src/index.ts",
     "build": "yarn run generate:nexus && npx tsc",
+    "generate:prisma": "npx prisma generate",
     "generate:nexus": "cross-env NEXUS_SHOULD_EXIT_AFTER_REFLECTION=true npx ts-node --transpile-only ./src/resolver/index.ts",
     "start": "cross-env NODE_ENV=production node build/src",
     "admin": "npx dotenv-cli -e .env -- npx prisma studio",
